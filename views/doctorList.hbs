@@ -1,0 +1,84 @@
+{{> header }}
+	<!-- Breadcrumb -->
+			<div class="breadcrumb-bar">
+				<div class="container-fluid">
+					<div class="row align-items-center">
+						<div class="col-md-8 col-12">
+							<nav aria-label="breadcrumb" class="page-breadcrumb">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Search</li>
+								</ol>
+							</nav>
+							
+						</div>
+						<div class="col-md-4 col-12 d-md-block d-none">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Breadcrumb -->
+			
+			<!-- Page Content -->
+			<div class="content">
+				<div class="container-fluid">
+
+					<div class="row">
+						<div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+						
+							
+						</div>
+						
+						<div class="col-md-12 col-lg-8 col-xl-9">
+
+							
+                            {{#each data}}
+							<div class="card">
+								<div class="card-body">
+									<div class="doctor-widget">
+										<div class="doc-info-left">
+											<div class="doctor-img">
+												<a href="/doctorProfile?did={{this.doctor._id}}">
+													<img src={{this.doctor.profile}} class="img-fluid" alt="User Image">
+												</a>
+											</div>
+											<div class="doc-info-cont">
+												<h4 class="doc-name"><a href="/doctorProfile">{{this.doctor.name}} </a></h4>
+												<p class="doc-speciality">{{this.doctor.qualification}}</p>
+												<h5 class="doc-department"><img src={{this.speciality.picture}} class="img-fluid" alt="Speciality">{{this.speciality.title}}</h5>
+												<div class="rating">
+													<i class="fas fa-star filled"></i>
+													<i class="fas fa-star filled"></i>
+													<i class="fas fa-star filled"></i>
+													<i class="fas fa-star filled"></i>
+													<i class="fas fa-star"></i>
+													<span class="d-inline-block average-rating">(17)</span>
+												</div>
+																							</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+                            {{/each}}
+							<!-- /Doctor Widget -->
+
+							<!-- Doctor Widget -->
+			
+					
+							
+						
+							<!-- /Doctor Widget -->
+
+							<div class="load-more text-center">
+								<a class="btn btn-primary btn-sm" href="javascript:void(0);">Load More</a>	
+							</div>	
+						</div>
+					</div>
+
+				</div>
+
+			</div>		
+
+{{> footer }}

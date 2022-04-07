@@ -1,0 +1,68 @@
+{{> header }}
+<!-- Home Banner -->
+			<section class="section section-search">
+				<div class="container-fluid">
+					<div class="banner-wrapper">
+						<div class="banner-header text-center">
+							<h1>Search Doctor, Make an Appointment</h1>
+							<p>Discover the best doctors, clinic & hospital the city nearest to you.</p>
+						</div>
+                         
+						<!-- Search -->
+						<div class="search-box">
+							<form action="/searchdoctor" method="post">
+								<div class="form-group search-location">
+									<input type="text" class="form-control" placeholder="Search Location">
+									<span class="form-text">Based on your Location</span>
+								</div>
+								<div class="form-group search-info">
+									<input type="text" class="form-control" name="searchItem" placeholder="Search Doctors, Clinics, Hospitals, Diseases Etc">
+									<span class="form-text">Ex : Dental or Sugar Check up etc</span>
+								</div>
+								<button type="submit" class="btn btn-primary search-btn"><i class="fas fa-search"></i> <span>Search</span></button>
+							</form>
+						</div>
+						<!-- /Search -->
+						
+					</div>
+				</div>
+			</section>
+			
+			<!-- /Home Banner -->
+			  
+			<!-- Clinic and Specialities -->
+			{{!-- <section class="section section-specialities">
+				<div class="container-fluid">
+					<div class="section-header text-center">
+						<h2>Clinic and Specialities</h2>
+						
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-md-9">
+							<!-- Slider -->
+							<div class="specialities-slider slider">
+							        {{#each data}}
+								<!-- Slider Item -->
+								<div class="speicality-item text-center">
+									<div class="speicality-img">
+										<img src="/img/specialities/specialities-01.png" class="img-fluid" alt="Speciality">
+										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
+									</div>
+									<p>{{this.title}}</p>
+								</div>	
+								<!-- /Slider Item -->
+								{{/each}}
+														
+								<!-- /Slider Item -->
+								
+							</div>
+							<!-- /Slider -->
+							
+						</div>
+					</div>
+				</div>   
+			</section>	 
+	 --}}
+		   
+			
+       

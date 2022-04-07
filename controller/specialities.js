@@ -21,15 +21,15 @@ module.exports.login = async (req, res, next) => {
 
   }
 }
-module.exports.get = async (req,res,next) => {
+module.exports.get = async (req, res, next) => {
 
   try {
     const response = await specialities.get()
-    if(response.length!=0){
-      res.send({msg:"your data",data:response})
+    if (response.length != 0) {
+      res.send({ msg: "your data", data: response })
     }
-    else{
-      res.send({msg:"data not found"})
+    else {
+      res.send({ msg: "data not found" })
     }
   }
   catch (error) {

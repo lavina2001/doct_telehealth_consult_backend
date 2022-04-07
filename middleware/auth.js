@@ -1,24 +1,76 @@
-const jwt=require("jsonwebtoken")
-const jwt_decode=require("jwt-decode");
+const jwt = require("jsonwebtoken")
+const jwt_decode = require("jwt-decode");
 const userModel = require("../models/user");
-const auth=(req,res)=>{
-    const token=req.headers["authorization"]
-    if (token) {
-        const bearer = token.split(' ');
-        const bearerToken = bearer[1];
-       let user =jwt_decode(bearerToken)
-       let isUser=await userModel.find({_id:user._id})
-       if(isUser.length!=0){
-           req.user=isUser[0]
-       }
-       else{
-        res.send({authorizationerror:"invalid token"})
-       }
-        next();
-      }
-      else{
-          res.send({authorizationerror:"token not provided"})
-          
-      }
+module.exports.auth = async (req, res, next) => {
+    try {
+
+        let token = req.cookies.token
+
+        if (token != '') {
+  
+            let userData = await userModel.find({ $and: [{ token }, { role: 0 }] })
+                // console.log(userData)
+                if (userData.length != 0) {
+                    req.user = userData
+                    next();
+                }
+                else { res.redirect('/login') }
+        
+        }
+        else {
+            res.redirect('/login')
+
+        }
+    } catch (error) {
+        console.log(error)
+        res.redirect('/login')
+
+    }
 }
-module.exports=auth
+module.exports.doctorAuth = async (req, res, next) => {
+    try {
+        let token = req.cookies.token
+        if (token != '') {
+
+                let userData = await userModel.find({ $and: [{ token }, { role: 1 }] })
+                if (userData.length == 0) {
+                    res.redirect('/login')
+                } else {
+                    req.user = userData
+                    next();
+                }
+        }
+        else {
+            res.redirect('/login')
+
+        }
+    } catch (error) {
+        console.log(error)
+        res.redirect('/login')
+
+    }
+}
+
+module.exports.adminAuth = async (req, res, next) => {
+    try {
+        let token = req.cookies.token
+        if (token != '') {
+
+                let userData = await userModel.find({ $and: [{ token }, { role: 2 }] })
+                if (userData.length == 0) {
+                    res.redirect('/login')
+                } else {
+                    req.user = userData
+                    next();
+                }
+        }
+        else {
+            res.redirect('/login')
+
+        }
+    } catch (error) {
+        console.log(error)
+        res.redirect('/login')
+
+    }
+}

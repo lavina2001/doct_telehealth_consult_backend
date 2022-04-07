@@ -1,0 +1,78 @@
+{{> adminHeader}}
+{{> adminSidebar}}
+			<!-- Page Wrapper -->
+            <div class="page-wrapper">
+                <div class="content container-fluid">
+				
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row">
+							<div class="col-sm-12">
+								<h3 class="page-title">List of Patient</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+									<li class="breadcrumb-item"><a href="javascript:(0);">Users</a></li>
+									<li class="breadcrumb-item active">Patient</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+					
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="card">
+								<div class="card-body">
+									<div class="table-responsive">
+										<div class="table-responsive">
+										<table class="datatable table table-hover table-center mb-0">
+											<thead>
+												<tr>
+													<th>Patient ID</th>
+													<th>Patient Name</th>
+													<th>City</th>
+													<th>Phone</th>
+							
+												</tr>
+											</thead>
+											<tbody>
+												{{#each response}}
+												<tr>
+													<td>#PT001</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="profile.html" class="avatar avatar-sm mr-2"><img class="avatar-img rounded-circle" src={{this.profile}} alt="User Image"></a>
+															<a href="profile.html">{{this.name}} </a>
+														</h2>
+													</td>
+													<td>{{this.city}}</td>
+													<td>{{this.mobileNo}}</td>
+													
+												</tr>
+												{{/each}}
+												
+												
+														
+													
+													
+											</tbody>
+										</table>
+									</div>
+									</div>
+								</div>
+							</div>
+						</div>			
+					</div>
+					
+				</div>			
+			</div>
+			<!-- /Page Wrapper -->
+		
+        </div>
+		<!-- /Main Wrapper -->
+		
+		
+    </body>
+
+<!-- Mirrored from dreamguys.co.in/demo/doccure/admin/patient-list.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 04:12:52 GMT -->
+</html>
