@@ -1,4 +1,4 @@
-const userDoctor = require('../service/user.doctor')
+const userDoctor = require('../service/userdoctor')
 const jwt =require('jsonwebtoken')
 module.exports.showRegsiterPage=async(req,res,next)=>{
     res.render('doctorRegister')

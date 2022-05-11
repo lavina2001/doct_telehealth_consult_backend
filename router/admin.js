@@ -12,7 +12,7 @@ router.get('/profile',auth.adminAuth,admin.profile_page)
 router.get('/getSpecialities',auth.adminAuth,admin.getSpecelities)
 router.post('/addSpecelities',auth.adminAuth,upload,admin.addSpecelities)
 router.get('/specialities/:id',auth.adminAuth,admin.specialitiesById)
-router.post('/editSpecelities',auth.adminAuth,upload,admin.editSpecialities)
+router.post('/editSpecialities',auth.adminAuth,upload,admin.editSpecialities)
 router.get('/deleteSpecialities/:id',auth.adminAuth,admin.deleteSpeciality)
 
 

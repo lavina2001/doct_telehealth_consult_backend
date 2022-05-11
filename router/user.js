@@ -1,5 +1,5 @@
 const Router = require('express').Router
-const userDoctor = require('../controller/userdoctor')
+const userDoctor = require('../controller/userDoctor')
 const user = require('../controller/user')
 const speciality=require('../service/specialities')
 const auth = require('../middleware/auth')
@@ -16,7 +16,7 @@ router.get('/doctorProfile',auth.auth,user.doctorProfilePage)
 router.get('/doctorlist',auth.auth,user.doctorSearch)
 router.get('/booking',auth.auth, user.bookingPage)
 router.post('/booking',auth.auth,user.booking)
-router.get('/appointmentList',auth.auth,user.appointmentList)
+router.get('/appoinmentList',auth.auth,user.appoinmentList)
 router.get('/login', (req, res) => {
     res.render('login')
 });

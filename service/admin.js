@@ -36,9 +36,9 @@ module.exports.getSpecelities=async()=>{
 
     }
 }
-module.exports.specialitiesById=async(payload)=>{
+module.exports.getSpecelities=async()=>{
     try{
-       let data=await Speciality.find({_id:payload})
+       let data=await Speciality.find({})
        if(data.length!=0){
            return {status:1,data}
        }else{
@@ -47,8 +47,8 @@ module.exports.specialitiesById=async(payload)=>{
     }catch(err){
 
     }
-
 }
+
 module.exports.editSpecialities=async(payload)=>{
     try{
       let {id}=payload 
@@ -65,6 +65,15 @@ module.exports.editSpecialities=async(payload)=>{
     }
 }
 module.exports.getDoctor=async(role)=>{
+    try{
+      let response=await userModel.find({role})
+  
+      return response
+    }catch(err){
+    }
+    
+    }
+    module.exports.getappointmentPage=async(role)=>{
     try{
       let response=await userModel.find({role})
   

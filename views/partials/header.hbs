@@ -65,11 +65,23 @@
                         <li class="has-submenu">
                             <a href="#">Doctors <i class="fas fa-chevron-down"></i></a>
                             <ul class="submenu">
-                                <li><a href="/doctorDashboard">Doctor Dashboard</a></li>
-
-
-                            </ul>
-                        </li>
+                                <li><a href="/doctorDashboard?did=624ec108d997eaa1454e61c7">Doctor Dashboard</a></li>
+                                <li><a href="/appoinmentList">Appoinment List</a></li>
+                                <li><a href="/appoinmentList">Check Payment</a></li>
+                                <li><a href="/streaming?">TeleCommunication</a></li>
+                                <li><a href="/Feedback">View Feedback</a></li>
+                                </ul>
+                                </li>
+                                <li class="has-submenu">
+                                    <a href="#">Patient <i class="fas fa-chevron-down"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="/Diseases">Search diseases</a></li>
+                                        <li><a href="/doctorList">Booking</a></li>
+                                        <li><a href="/booking?did=627a00a9c377b572870f3c2a">Payment</a></li>
+                                        <li><a href="/streaming?">TeleCommunication</a></li>
+                                        <li><a href="/Feedback"> Feedback</a></li>
+                                    </ul>
+                                </li>
 
                         <li>
                             <a href="/admin" target="_blank">Admin</a>
@@ -88,12 +100,16 @@
                             <p class="contact-header">Contact</p>
                             <p class="contact-info-header"> +919876543210</p>
                         </div>
-                        
 
-                            <a href="pdf/doctor-thumb-01.jpg" download>
-                                <img src="pdf/logo.jpg" alt="logo" width="60" height="60">
-                            </a>
-                        
+{{!-- <a href="payment/payment.png" download> --}}
+
+    {{!-- <a class="nav-link header-login" href="payment/payment.png" download> PAYMENT </a> --}}
+
+
+                        <a href="pdf/doctor-thumb-01.jpg" download>
+                            <img src="pdf/logo.jpg" alt="logo" width="60" height="60">
+                        </a>
+
                     </li>
                     <li class="nav-item">
                         <a class="nav-link header-login" href="/login">login / Signup </a>

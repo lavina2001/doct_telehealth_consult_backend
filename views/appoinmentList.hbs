@@ -9,7 +9,7 @@
                 <div class="col-sm-12">
                     <h3 class="page-title">Appointments</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/doctorDashboard?did=624ec108d997eaa1454e61c7">Dashboard</a></li>
                         <li class="breadcrumb-item active">Appointments</li>
                     </ul>
                 </div>
@@ -40,11 +40,12 @@
                                             <h2 class="table-avatar">
                                                 <a href="/doctor-profile" class="avatar avatar-sm mr-2"><img
                                                         class="avatar-img rounded-circle"
-                                                        src={{data.profile}} alt="User Image"></a>
+                                                        src="/img/dp.png" alt=""></a>
                                                 <a href="/doctor-profile">Dr {{data.name}}</a>
                                             </h2>
                                         </td>
-                                        <td>Dental</td>
+                                        <td>cardiologist</td>
+                                        {{!-- <td>neurologist</td> --}}
                                         
                                         <td>{{data.appointment.[0].time}} <span
                                                 class="text-primary d-block">{{data.appointment.[0].date}}</span></td>

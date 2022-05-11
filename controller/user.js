@@ -19,7 +19,7 @@ if(profile!==undefined){payload.profile=profile.substring(6)}
       if(response.user.role==2){
         res.redirect('/admin/')
       }else if(response.user.role==1){
-        res.redirect(`/dashboard?did=${response.user._id}`)
+        res.redirect(`doctorDashboard?did=${response.user._id}`)
       }
       res.redirect('/doctorList')
 
@@ -38,13 +38,14 @@ module.exports.login = async (req, res, next) => {
     const response = await user.login(payload);
     if (response.status) {
       let {token}=response.user[0]
-      console.log("user js",response.user[0])
+      console.log(response.user[0])
 
       res.cookie('token',token)
       if(response.user[0].role==2){
         res.redirect('/admin/')
       }else if(response.user[0].role==1){
-        res.redirect(`/dashboard?did=${response.user[0]._id}`)
+        res.redirect(`/doctorDashboard?did=${response.user[0]._id}`)
+        // res.redirect(`/doctorDashboard/`)
       }
 
       res.redirect('/doctorList')
@@ -104,17 +105,17 @@ module.exports.booking=async(req,res,next)=>{
   
    })
   console.log(response)
-  res.redirect(`/appointmentList`)
+  res.redirect(`/appoinmentList`)
   }catch(err){
    console.log(err)
   }
 }
-module.exports.appointmentList=async(req,res,next)=>{
+module.exports.appoinmentList=async(req,res,next)=>{
   try{
     let {_id}=req.user[0]
     let response=await userModel.find({'appointment.userId':_id}).limit(1)
     
-    console.log("appointmentList user js",response)
+    console.log(response)
     res.render('appoinmentList',{data:response[0]})
   }catch(err){
    console.log(err)

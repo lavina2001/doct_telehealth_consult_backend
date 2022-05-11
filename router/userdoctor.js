@@ -1,5 +1,5 @@
 const Router = require('express').Router
-const userDoctor = require('../controller/userdoctor')
+const userDoctor = require('../controller/userDoctor')
 const auth=require("../middleware/auth")
 const router = Router()
 router.get('/doctor', userDoctor.get);
