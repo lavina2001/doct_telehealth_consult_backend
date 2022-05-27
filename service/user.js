@@ -5,6 +5,7 @@ const { ObjectId } = require('mongoose')
 const specialityModel = require('../models/specialities')
 module.exports.login = async (payload) => {
   try {
+    console.log("payload>>>", payload);
     let { email, password, role } = payload
     // console.log(email,password,role)
     let isUser = await userModel.find({ $and: [{ email }, { role }] })
@@ -26,22 +27,27 @@ module.exports.login = async (payload) => {
     }
 
   } catch (error) {
-    console.log(error)
+    console.log("come in chatch>>>>",error.message)
   }
 }
 
 module.exports.singup = async (payload) => {
 
   try {
-
+    console.log("singup>>>>", payload);
     let { password } = payload
     password = await bcryptjs.hash(password, 10)
+    console.log("password>>>>", password);
     const user = new userModel({ ...payload, password })
+    console.log("user>>>>>", user);
     user.token=jwt.sign({ _id:user._id, email: user.email }, process.env.JWT_SECRET_KEY)
+    console.log("user.token>>>>", user.token);
+    // await user.save()
     await user.save()
+    console.log("user>>>>", user);
     return { status: 1, user }
   } catch (error) {
-    console.log(error)
+    console.log("come in chach>>>>>>>>>",error)
   }
 
 
@@ -53,8 +59,9 @@ module.exports.doctorSearch = async (payload) => {
     let doctor=await userModel.find({role:1})
    for (let index = 0; index < doctor.length; index++) {
      const element = doctor[index];
+     console.log("the element",element);
      let speciality=await specialityModel.find({_id:element.speciality})
-
+    console.log("@@@@@@@@@@speciality@@@@@@@",speciality);
      doctorList.push({speciality:speciality[0],doctor:element})
   
    }

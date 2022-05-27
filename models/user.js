@@ -61,7 +61,15 @@ const userSchema = mongoose.Schema({
     ],
     token:{
         type:String
-    }
+    },
+     feedback:[
+        {
+            userId:{type:String},
+            feedback:{type:String,required:false}
+        }
+    ],
+
+    
 })
 const userModel = mongoose.model('user', userSchema)
 module.exports = userModel

@@ -5,8 +5,8 @@ const stream = ( socket ) => {
         socket.join( data.socketId );
 
         //Inform other members in the room of new user's arrival
-        if ( socket.adapter.rooms[data.room]?.length>1 ) {
-            socket.to( data.room ).emit( 'new user', { socketId: data.socketId } );
+        if (socket.adapter.rooms.has(data.room) === true) {
+            socket.to(data.room).emit('new user', { socketId: data.socketId });
         }
     } );
 

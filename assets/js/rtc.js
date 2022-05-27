@@ -21,7 +21,8 @@ window.addEventListener( 'load', () => {
         }
 
         var pc = [];
-        let socket = io( '/video-call' );
+
+        let socket = io( '/stream' );
 
         var socketId = '';
         var randomNumber = `__${h.generateRandomString()}__${h.generateRandomString()}__`;
@@ -47,6 +48,7 @@ window.addEventListener( 'load', () => {
 
 
             socket.on( 'new user', ( data ) => {
+                console.log("data>>>>>>>>>>>>>>>>.", data);
                 socket.emit( 'newUserStart', { to: data.socketId, sender: socketId } );
                 pc.push( data.socketId );
                 init( true, data.socketId );
@@ -131,6 +133,7 @@ window.addEventListener( 'load', () => {
 
 
         function init( createOffer, partnerName ) {
+            console.log("init calll>>>>>>>>>>>>>", pc);
             pc[partnerName] = new RTCPeerConnection( h.getIceServer() );
 
             if ( screen && screen.getTracks().length ) {
@@ -348,6 +351,16 @@ window.addEventListener( 'load', () => {
             };
         }
 
+        document.getElementById('chat-input-btn').addEventListener('click',(e) => {
+            console.log("here: ",document.getElementById('chat-input').value)
+            if (  document.getElementById('chat-input').value.trim()  ) {
+                sendMsg( document.getElementById('chat-input').value );
+
+                setTimeout( () => {
+                    document.getElementById('chat-input').value = '';
+                }, 50 );
+            }
+        });
 
         //Chat textarea
         document.getElementById( 'chat-input' ).addEventListener( 'keypress', ( e ) => {

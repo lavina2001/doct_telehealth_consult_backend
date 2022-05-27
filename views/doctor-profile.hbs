@@ -41,10 +41,9 @@
 											<i class="fas fa-star"></i>
 											<span class="d-inline-block average-rating">(35)</span>
 										</div>
-										<div class="clinic-details">
-											<p class="doc-location"><i class="fas fa-map-marker-alt"></i>{{doctor.city}}<a href="javascript:void(0);">Get Directions</a></p>
-											
-										</div>
+									<div class="clinic-booking">
+										<a class="apt-btn" href="/feedback?doctorid={{doctor._id}}">FEEDBACK </a>
+									</div>
 									</div>
 								</div>
 								<div class="doc-info-right">
@@ -53,23 +52,30 @@
 										{{!-- <a href="javascript:void(0)" class="btn btn-white fav-btn">
 											<i class="far fa-bookmark"></i>
 										</a> --}}
-										<a href="chat.html" class="btn btn-white msg-btn">
+										{{!-- <a href="chat.html" class="btn btn-white msg-btn">
 											<i class="far fa-comment-alt"></i>
-										</a>
+										</a> --}}
 										{{!-- <a href="javascript:void(0)" class="btn btn-white call-btn" data-toggle="modal" data-target="#voice_call">
 											<i class="fas fa-phone"></i>
 										</a> --}}
-										<a href="/streaming?did={{doctor._id}}" class="btn btn-white call-btn">
+									<a href="pdf/Project Report PDF.pdf" download>
+										<img src="pdf/logo.jpg" alt="logo" width="40" height="40">
+									</a>
+									
+									<a href="/streaming?did={{doctor._id}}" class="btn btn-white call-btn" style="margin-left:80px">
 											<i class="fas fa-video"></i>
 										</a>
 									</div>
+									
 									<div class="clinic-booking">
 										<a class="apt-btn" href="/booking?did={{doctor._id}}">Book Appointment</a>
+					
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+
 					<!-- /Doctor Widget -->
 					
 					<!-- Doctor Details Tab -->
@@ -78,6 +84,22 @@
 				</div>
 			</div>		
 			<!-- /Page Content -->
-   
-			<!-- Footer -->
+</script>
+<!-- Footer -->
+<div id="map"></div>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+{{!--
+<script src='https://www.mapbox.com/mapbox-gl-js/api/#map#on'></script> --}}
+
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1IjoibGF2aW5hYWdhcndhbCIsImEiOiJjbDBqN2tiOTUwOXYxM2lyazJ6NTRjMjFuIn0.Uos2u3t-SM8XqpmXKOysHA';
+	var map = new mapboxgl.Map({
+
+		container: 'map',
+		style: 'mapbox://styles/mapbox/streets-v11',
+
+
+	});
+
+</script>
 {{> footer }}

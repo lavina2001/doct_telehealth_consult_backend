@@ -1,0 +1,134 @@
+{{> header }}
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-12">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
+                    </ol>
+                </nav>
+                <h2 class="breadcrumb-title">Doctor Profile</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="Symptoms">
+        <h1>Select Symptoms</h1>
+        <input type="checkbox" id="Fever" name="Fever" value="Fever" onchange="pushToArray(checked,id)">
+        <label for="Fever">Fever</label><br>
+
+        <input type="checkbox" id="Wommit" name="Wommit" value="Wommit" onchange="pushToArray(checked,id)">
+        <label for="Wommit">Wommit</label><br>
+
+        <input type="checkbox" id="Headache" name="Headache" value="Headache" onchange="pushToArray(checked,id)">
+        <label for="Headache">Headache</label><br>
+
+        <input type="checkbox" id="Thoughts" name="Thoughts" value="Thoughts" onchange="pushToArray(checked,id)">
+        <label for="Thoughts">Thoughts</label><br>
+
+        <input type="checkbox" id="Nausea" name="Nausea" value="Nausea" onchange="pushToArray(checked,id)">
+        <label for="Nausea">Nausea</label><br>
+
+        <input type="checkbox" id="Weekness" name="Weekness" value="Weekness" onchange="pushToArray(checked,id)">
+        <label for="Weekness">Weekness</label><br>
+
+        <input type="checkbox" id="Body Pain" name="Body Pain" value="Body Pain" onchange="pushToArray(checked,id)">
+        <label for="Body Pain">Body Pain</label><br>
+
+        <input type="checkbox" id="Dehydration" name="Dehydration" value="Dehydration"
+            onchange="pushToArray(checked,id)">
+        <label for="Dehydration">Dehydration</label><br>
+
+        <input type="checkbox" id="Fatigue" name="Fatigue" value="Fatigue" onchange="pushToArray(checked,id)">
+        <label for="Fatigue">Fatigue</label><br>
+
+        <input type="checkbox" id="Breathing_Problem" name="Breathing Problem" value="Breathing Problem"
+            onchange="pushToArray(checked,id)">
+        <label for="Breathing Problem">Breathing Problem</label><br><br>
+
+        <input type="submit" value="Submit" onclick="selectSymptoms()"><br><br>
+    </div>
+
+    <div id="se" style="display:none">
+        <h1>Select Diseases</h1>
+
+        <input type="checkbox" id="Infection" name="Infection" value="Infection" onchange="pushArray(checked,id)">
+        <label for="Infection">Infection</label><br>
+
+        <input type="checkbox" id="Migraine" name="Migraine" value="Migraine" onchange="pushArray(checked,id)">
+        <label for="Migraine">Migraine</label><br>
+
+        <input type="checkbox" id="Heart_Disease" name="Heart Disease" value="Heart Disease"
+            onchange="pushArray(checked,id)">
+        <label for="Heart Disease">Heart Disease</label><br>
+
+        <input type="checkbox" id="Cancer" name="Cancer" value="Cancer" onchange="pushArray(checked,id)">
+        <label for="Cancer">Cancer</label><br>
+
+        <input type="checkbox" id="Food Poison" name="Food Poison" value="Food Poison" onchange="pushArray(checked,id)">
+        <label for="Food Poison">Food Poison</label><br><br>
+        <a href="/doctorList"><input type="submit" value="Submit"></a><br><br>
+
+
+    </div>
+
+</body>
+<script>
+    function selectSymptoms() {
+
+        let disease = document.getElementById("Symptoms");
+        disease.style.display = "none";
+
+        let Symptoms = document.getElementById("se");
+        Symptoms.style.display = "block";
+    }
+    let symptomsArray = []
+    function pushToArray(status, id) {
+        if (status == true) {
+            if (symptomsArray.length < 4) {
+                symptomsArray.push(id)
+            } else {
+                document.getElementById(id).checked = false
+            }
+            console.loglog
+
+        } else {
+            symptomsArray.splice(id, 1)
+        }
+    }
+
+    let diseaseArray = []
+    function pushArray(status, id) {
+        if (status == true) {
+            if (diseaseArray.length < 2) {
+                diseaseArray.push(id)
+            } else {
+                document.getElementById(id).checked = false
+            }
+        } else {
+            diseaseArray.splice(id, 1)
+        }
+        console.log(diseaseArray)
+    }
+
+</script>
+{{> footer }}
+
+</html>

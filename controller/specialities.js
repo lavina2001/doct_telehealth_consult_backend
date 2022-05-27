@@ -2,6 +2,7 @@ const specialities = require('../service/specialities')
 module.exports.add = async (req, res, next) => {
   try {
     const payload = req.body;
+    console.log("payload in specialities>>>>>", payload);
     const response = await specialities.add(payload);
     if (response) {
       res.send({ msg: "new specialities created.." })
@@ -15,6 +16,7 @@ module.exports.add = async (req, res, next) => {
 module.exports.login = async (req, res, next) => {
   try {
     const payload = req.body;
+    console.log("login payload > ", payload);
     const response = await user.login(payload);
     res.send(response)
   } catch (error) {

@@ -1,0 +1,82 @@
+{{> header }}
+
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-12">
+                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Doctor Profile</li>
+                    </ol>
+                </nav>
+                <h2 class="breadcrumb-title">Doctor Profile</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FeedBack</title>
+</head>
+
+<body>
+    <center>
+        <h1>Patient Feedback</h1>
+    </center>
+    <div>
+        <div>
+            <center> <label class="feed" for="feed">Write Your Feedback</label></center>
+            <center><textarea name="feed" id="feed" cols="30" rows="10"></textarea></center>
+        </div>
+        <input type="hidden" value={{doctor_id}} id="doctorid">
+        <input type="hidden" value={{user_id}} id="userid">
+
+
+
+        <center><input type="submit" value="Submit" id="feedback_btn"><br><br></center>
+    </div>
+</body>
+<style>
+    .feed {
+        display: block;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('#feedback_btn').click((e) => {
+            try {
+                e.preventDefault()
+
+                const userId = $('#userid').val()
+                const doctorId = $('#doctorid').val()
+                const feedback = $('#feed').val()
+
+                $.ajax({
+                    method: "POST",
+                    url: "/feedback",
+                    data: { userId, doctorId, feedback },
+                    success: function (data) {
+
+                    }
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        })
+    })
+</script>
+
+</html>
+
+
+{{> footer }}
+
+</html>
